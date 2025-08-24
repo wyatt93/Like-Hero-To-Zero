@@ -1,0 +1,17 @@
+body {
+	background: linear-gradient(to right, #667eea, #764ba2);
+	font-family: 'Segoe UI', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.login-card {
+	width: 25rem;
+}

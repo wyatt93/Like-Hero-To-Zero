@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Like Hero to Zero</title>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </h:head>
+    <h:body>
+
+        <!-- Formular zum Hinzufügen eines neuen Datensatzes -->
+        <h:form id="addEmissionForm">
+            <p:panel header="Neuen Datensatz hinzufügen" style="margin-bottom:20px;">
+            	<p:commandButton value="Abbrechen"
+                             action="#{emissionslisteController.abbruch}"
+                             ajax="false"
+                             process="@this"
+                             update="@none"
+                             immediate="true"
+                             validateClient="false"
+                             icon="pi pi-times"
+                             styleClass="p-mt-2" />
+            
+                <p:panelGrid columns="2" columnClasses="label,value" styleClass="ui-fluid">
+
+                    <p:outputLabel for="iso" value="ISO:" />
+                    <p:inputText id="iso" value="#{emissionslisteController.neuerEintrag.iso}" required="true"/>
+
+                    <p:outputLabel for="land" value="Land:" />
+                    <p:inputText id="land" value="#{emissionslisteController.neuerEintrag.land}" required="true"/>
+
+                    <p:outputLabel for="em2019" value="Emission 2019:" />
+                    <p:inputText id="em2019" value="#{emissionslisteController.neuerEintrag.emission2019}" />
+
+                    <p:outputLabel for="em2020" value="Emission 2020:" />
+                    <p:inputText id="em2020" value="#{emissionslisteController.neuerEintrag.emission2020}" />
+
+                    <p:outputLabel for="em2021" value="Emission 2021:" />
+                    <p:inputText id="em2021" value="#{emissionslisteController.neuerEintrag.emission2021}" />
+
+                    <p:outputLabel for="em2022" value="Emission 2022:" />
+                    <p:inputText id="em2022" value="#{emissionslisteController.neuerEintrag.emission2022}" />
+
+                    <p:toggleSwitch id="freigegeben" value="#{emissionslisteController.neuerEintrag.istFreigegeben}" rendered="false" />
+
+                </p:panelGrid>
+
+                	<p:commandButton value="Hinzufügen"
+                                 action="#{emissionslisteController.addEintrag}"
+                                 ajax="false"
+                                 icon="pi pi-plus"
+                                 styleClass="p-mt-2"/>
+            </p:panel>
+        </h:form>
+
+        
+
+    </h:body>
+</html>
