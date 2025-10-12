@@ -1,5 +1,11 @@
+import jakarta.persistence.*;
 
+@Entity
 public class Emission {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int ID;
 	private String iso;
 	private String land;
 	private double emission2019;
@@ -22,6 +28,7 @@ public class Emission {
 		this.istFreigegeben = istFreigegeben;
 	}
 	
+
 	public String getIso() {
 		return iso;
 	}
