@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -21,6 +22,11 @@ public class EmissionslisteController implements Serializable{
     public void loadData() {
         emissionsliste.getListe().clear();
         emissionsliste.getListe().addAll(emissionDAO.getAll());
+    }
+    
+    //getter für die Liste
+    public List<Emission> getEmissionen() {
+    	return emissionsliste.getListe();
     }
     
     //neuen Eintrag abrufen

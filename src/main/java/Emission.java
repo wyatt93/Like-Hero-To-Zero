@@ -1,6 +1,7 @@
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Emission") //Zuordnung zur richtigen Tabelle in der Datenbank
 public class Emission {
 	
 	@Id

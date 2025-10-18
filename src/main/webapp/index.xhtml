@@ -8,7 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 </h:head>
 <h:body>
-
+	<!-- Event listener um die Daten zu laden, bevor sich die Tabelle aufbaut -->
+	<f:event type="preRenderView" listener="#{emissionslisteController.loadData}" />
+	
 	<h:form>
         <p:menubar>
             <p:menuitem value="Home" icon="pi pi-home" url="index.xhtml" />
@@ -20,7 +22,7 @@
     			CO2-Emissionen
     		</f:facet>
     		
-    		<p:dataTable var="emission" value="#{emissionsliste.liste}">
+    		<p:dataTable var="emission" value="#{emissionslisteController.emissionen}">
     			<f:facet name="header">
     				<h2>CO<sub>2</sub>-Emissionen</h2>
     			</f:facet>
