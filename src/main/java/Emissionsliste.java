@@ -14,9 +14,6 @@ public class Emissionsliste implements Serializable {
 	
 
 	public Emissionsliste() {
-			liste.add(new Emission("CHN", "China", 10077.44, 10190.85, 10734.63, 10688.8, false));
-			liste.add(new Emission("USA", "United States", 4595.91, 4098.51, 4385.2, 4442.62, false));
-			liste.add(new Emission("ABC", "ABC Land", 3323.99, 4000.02, 3800.22, 3442.80, true));
 			
 	}
 

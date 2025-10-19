@@ -9,27 +9,35 @@ public class EmissionDAO {
 	EntityManager em = emf.createEntityManager();
 	EntityTransaction t = em.getTransaction();
 	
+	//alle Datensätze auslesen
 	public List<Emission> getAll() {
         return em.createQuery("SELECT e FROM Emission e", Emission.class).getResultList();
     }
 	
-	public void saveAll(List<Emission> emissionen) {
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction t = em.getTransaction();
+	//nur freigegebene Datensätze auslesen
+	public List<Emission> getAllFreigegeben() {
+	    return em.createQuery("SELECT e FROM Emission e WHERE e.istFreigegeben = true", Emission.class).getResultList();
+	}
 
-        try {
-            t.begin();
-            for (Emission e : emissionen) {
-                em.merge(e);
-            }
-            t.commit();
-        } catch (Exception ex) {
-            if (t.isActive()) {
-                t.rollback();
-            }
-            throw ex;
-        } finally {
-            em.close();
-        }
+	
+	public void saveAll(List<Emission> emissionen) {
+        
+        EntityTransaction t = em.getTransaction();
+        
+        t.begin();
+        for (Emission e : emissionen)
+        	em.merge(e);
+        
+        t.commit();
     }
+	
+	public void add(Emission neuerEintrag) {
+		EntityTransaction t = em.getTransaction();
+        
+        t.begin();
+        
+        em.persist(neuerEintrag);
+        
+        t.commit();
+	}
 }

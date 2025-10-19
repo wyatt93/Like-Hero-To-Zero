@@ -8,15 +8,18 @@
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</h:head>
 	<h:body>
+	<!-- Event listener um die Daten zu laden, bevor sich die Tabelle aufbaut -->
+		<f:event type="preRenderView" listener="#{emissionslisteController.loadData}" />
+		
 		<h:form>
 			<p:menubar>
+				<f:facet name="options">
+	            	<p:outputLabel value="User"/>
+	        	</f:facet>
 	            <p:menuitem value="Home" icon="pi pi-home" url="memberView.xhtml" />
 	            <p:menuitem value="neuer Datensatz" icon="pi pi-plus-circle" url="newDataView.xhtml"/>
-	            <p:menuitem value="Über uns" icon="pi pi-info-circle" url="about.xhtml" />
 	            <p:menuitem value="Logout" icon="pi pi-user" url="index.xhtml" />
 	        </p:menubar>
-	        
-	        
     		
     		<p:dataTable var="emission" value="#{emissionsliste.liste}">
     			<f:facet name="header">

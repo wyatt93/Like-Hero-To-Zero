@@ -8,21 +8,31 @@
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</h:head>
 	<h:body>
+		<!-- Event listener um die Daten zu laden, bevor sich die Tabelle aufbaut -->
+		<f:event type="preRenderView" listener="#{emissionslisteController.loadData}" />
+		
 		<h:form>
 			<p:menubar>
 				<f:facet name="options">
 	            	<p:outputLabel value="Admin"/>
 	        	</f:facet>
 	            <p:menuitem value="Home" icon="pi pi-home" url="adminView.xhtml" />
-	            <p:menuitem value="Über uns" icon="pi pi-info-circle" url="about.xhtml" />
+	            <p:menuitem value="neuer Datensatz" icon="pi pi-plus-circle" url="newDataView.xhtml"/>
 	            <p:menuitem value="Logout" icon="pi pi-user" url="index.xhtml" />
 	        </p:menubar>
 	        
+	        <!-- Speicher Button -->
+	        <p:messages id="messages">
+			<p:autoUpdate />
+			</p:messages>
+			<p:commandButton value="Speichern" icon="pi pi-check" styleClass="ui-button-success" style="margin-left:10px"
+				action="#{emissionslisteController.saveAll()}" />
 	        
     		<p:dataTable var="emission" value="#{emissionsliste.liste}">
     			<f:facet name="header">
     				<h2>CO<sub>2</sub>-Emissionen (Mitglieder Ansicht)</h2>
     			</f:facet>
+    			
     			<p:column headerText="ISO" filterBy="#{emission.iso}" filterMatchMode="contains">
     				<p:outputLabel value="#{emission.iso}"/>
     			</p:column>
@@ -51,6 +61,8 @@
     				<p:toggleSwitch value="#{emission.istFreigegeben}"/>
     			</p:column>
     		</p:dataTable>
+    		
+    		
 		</h:form>
 	</h:body>
 </html>

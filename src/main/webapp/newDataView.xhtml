@@ -11,7 +11,7 @@
 
         <!-- Formular zum Hinzufügen eines neuen Datensatzes -->
         <h:form id="addEmissionForm">
-            <p:panel header="Neuen Datensatz hinzufügen" style="margin-bottom:20px;">
+            <p:panel header="Neuen Datensatz hinzufügen" style="margin-bottom:20px">
             	<p:commandButton value="Abbrechen"
                              action="#{emissionslisteController.abbruch}"
                              ajax="false"
@@ -20,7 +20,7 @@
                              immediate="true"
                              validateClient="false"
                              icon="pi pi-times"
-                             styleClass="p-mt-2" />
+                             styleClass="p-mt-2 ui-button-danger" />
             
                 <p:panelGrid columns="2" columnClasses="label,value" styleClass="ui-fluid">
 

@@ -9,12 +9,11 @@
 </h:head>
 <h:body>
 	<!-- Event listener um die Daten zu laden, bevor sich die Tabelle aufbaut -->
-	<f:event type="preRenderView" listener="#{emissionslisteController.loadData}" />
+	<f:event type="preRenderView" listener="#{emissionslisteController.getAllFreigegeben}" />
 	
 	<h:form>
         <p:menubar>
             <p:menuitem value="Home" icon="pi pi-home" url="index.xhtml" />
-            <p:menuitem value="Über uns" icon="pi pi-info-circle" url="about.xhtml" />
             <p:menuitem value="Login" icon="pi pi-user" url="login.xhtml" />
         </p:menubar>
         

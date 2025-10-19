@@ -6,7 +6,7 @@ public class Emission {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int ID;
+	private Integer ID;
 	private String iso;
 	private String land;
 	private double emission2019;
